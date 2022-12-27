@@ -29,7 +29,8 @@ const SearchExercises = () => {
           sx={{bgcolor:'#FF2625', color:'#fff', textTransform:'none', width:{lg:'175px', sm:'80px'},
           fontSize:{lg:'20px', sm:'14px'},
           height:'56px',
-          // position:'absolute',
+          position:'absolute',
+          right:'0'
         }}
         >
           Search
