@@ -60,7 +60,6 @@ body {
     width: 700px;
     height: 900px;
     margin-top: -330px;
-
 }
 
 .exercise-card {
@@ -90,6 +89,10 @@ body {
 .exercise-card:hover,
 .bodyPart-card:hover {
     transform: scale(1.1, 1.1);
+}
+
+.explore-execises-btn{
+    
 }
 
 .search-btn:hover {
