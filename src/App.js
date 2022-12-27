@@ -12,7 +12,8 @@ import Footer from './components/Footer';
 
 export const App = () => {
   return (
-    <Box width='400px'>
+    // box/application will be responsive on xl screens with width 1488px and a margin of auto
+    <Box width='400px' sx={{ width: {xl: '1488px'}}} m="auto">
         <Navbar/>
         <Routes>
             <Route path="/" element={<Home/>}/>
