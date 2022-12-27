@@ -5,9 +5,9 @@ import HeroBanner from '../components/HeroBanner';
 import SearchExercises from '../components/SearchExercises';
 import Exercises from '../components/Exercises';
 
-const home = () => {
+const Home = () => {
   // changes in these states will be reflected all across the application
-  const [bodyPart, setBodyPart] = useState('all')
+  const [bodyPart, setBodyPart] = useState('all');
   const [exercises, setExercises] = useState([]);
 
   return (
@@ -20,11 +20,11 @@ const home = () => {
         />
         <Exercises
           setExercises={setExercises}
+          exercises={exercises} 
           bodyPart={bodyPart} 
-          setBodyPart={setBodyPart} 
         />
     </Box>
   )
 }
 
-export default home
+export default Home;

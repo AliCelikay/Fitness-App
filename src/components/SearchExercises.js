@@ -8,7 +8,7 @@ import HorizontalScrollbar from './HorizontalScrollbar';
 const SearchExercises = ({setExercises, bodyPart, setBodyPart}) => {
   // useState for user search bar and the exercises user will search
   const [search, setSearch] = useState('')
-  const [exercises, setExercises] = useState([]);
+  // const [exercises, setExercises] = useState([]);
   // this use state is for the horizontal scroll bar of body parts
   const [bodyParts, setBodyParts] = useState([])
 
