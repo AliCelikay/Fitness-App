@@ -3,17 +3,42 @@ import React, { useEffect, useState } from 'react';
 import { Box, Button, Stack, TextField, Typography } from '@mui/material';
 import { exerciseOptions, fetchData } from '../utils/fetchData';
 
-const SearchExercises = () => {
-  // at first will be empty string
+import HorizontalScrollbar from './HorizontalScrollbar';
+
+const SearchExercises = ({setExercises, bodyPart, setBodyPart}) => {
+  // useState for user search bar and the exercises user will search
   const [search, setSearch] = useState('')
+  const [exercises, setExercises] = useState([]);
+  // this use state is for the horizontal scroll bar of body parts
+  const [bodyParts, setBodyParts] = useState([])
+
+  // useEffect to fetch body part horizontal scroll bar categories as soon as page loads
+  // useEffect with a call back function, and we will call this at the start of the application so the array will be empty
+  useEffect(() => {
+    const fetchExercisesData = async () => {
+      const bodyPartsData = await fetchData('https://exercisedb.p.rapidapi.com/exercises/bodyPartList', exerciseOptions);
+
+      setBodyParts(['all', ...bodyPartsData]);
+    }
+    fetchExercisesData();
+  }, [])
+  
 
   // async to fetch data from api
   const handleSearch = async () =>{
     // if search exists
     if(search){
-      const exercisesData = await fetchData('https://exercisedb.p.rapidapi.com/exercises/bodyPartList', exerciseOptions);
+      const exercisesData = await fetchData('https://exercisedb.p.rapidapi.com/exercises', exerciseOptions);
 
-      console.log(exercisesData)
+      // inside filter the call back function gives back a specific exercise name, muscle group(target), equipment, or specific body parts, aka user can search 4 types of exercises
+      const searchedExercises = exercisesData.filter(
+        (exercise) => exercise.name.toLowerCase().includes(search)
+        || exercise.target.toLowerCase().includes(search)
+        || exercise.equipment.toLowerCase().includes(search)
+        || exercise.bodyPart.toLowerCase().includes(search)
+      );
+      setSearch('');
+      setExercises(searchedExercises)
     }
   }
 
@@ -52,6 +77,13 @@ const SearchExercises = () => {
         >
           Search
         </Button>
+      </Box>
+      <Box sx={{position: 'relative', width: '100%', p:'20px'}}>
+        <HorizontalScrollbar data={bodyParts}
+          bodyPart={bodyPart}
+          setBodyPart={setBodyPart}
+        />
+
       </Box>
     </Stack>
   )
