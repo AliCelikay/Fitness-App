@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 
 const ExerciseVideos = () => {
   return (
@@ -6,4 +6,4 @@ const ExerciseVideos = () => {
   )
 }
 
-export default ExerciseVideos
+export default ExerciseVideos;
