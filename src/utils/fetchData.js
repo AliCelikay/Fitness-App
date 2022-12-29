@@ -1,5 +1,6 @@
 // connection with rapid api
 
+// contains key to make out api request
 export const exerciseOptions = {
     // from rapidApi exercises
     method: 'GET',
