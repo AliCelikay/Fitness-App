@@ -21,12 +21,13 @@ const ExerciseDetail = () => {
       const exerciseDetailData = await fetchData(`${exerciseDbUrl}/exercises/exercise/${id}`, exerciseOptions);
       setExerciseDetail(exerciseDetailData);
 
-      const exerciseVideosData = await fetchData(`${youtubeSearchUrl}/search?query=${exerciseDetail.name} exercise`, youtubeOptions);
+      const exerciseVideosData = await fetchData(`${youtubeSearchUrl}/search?query=${exerciseDetailData.name} exercise`, youtubeOptions);
+      // console.log(exerciseVideosData);
       setExerciseVideos(exerciseVideosData.contents);
     }
     fetchExercisesData();
     // recalling function whenever id changes
-  }, [id])
+  }, [id]);
   
   return (
     <Box>
