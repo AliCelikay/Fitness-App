@@ -27,7 +27,7 @@ const Detail = ({exerciseDetail}) => {
     >
         <img src={gifUrl} alt={name} Loading="lazy" className="detail-image"/>
         <Stack sx={{gap: {lg: '35px', xs:'20px'}}}>
-            <Typography variant="h3">
+            <Typography variant="h3" sx={{ fontSize: { lg: '64px', xs: '30px' } }} fontWeight={700} textTransform="capitalize">
                 {name}
             </Typography>
             <Typography variant='h6'>
