@@ -1,7 +1,7 @@
 # Fitness Enhanced
 
 ## Description
-Fitness Enhanced utilizes React.js, Material UI version 5, and 2 API's: ExerciseDB and  Youtube Search and Download from RapidApi. Website has the functionality to browse more than 1300 exercises with practical examples, choose major muscle groups from a horizontal scroll bar component, search for a specific exercise from the ExerciseDb api, and each specific exercise page displays related videos on YouTube from the YouTube Search and Download Api, similar exercises for the muscle groups, and similar exercises for the equipment used.
+Fitness Enhanced utilizes React.js, Material UI version 5, and 2 APIs: ExerciseDB and  Youtube Search and Download from RapidAPI. The website has the functionality to browse more than 1300 exercises with practical examples, choose major muscle groups from a horizontal scroll bar component, search for a specific exercise from the ExerciseDb API, and each specific exercise page displays related videos on YouTube from the YouTube Search and Download Api, similar exercises for the muscle groups, and similar exercises for the equipment used.
 
 ## Table of Contents
 * [Usage](#usage)
