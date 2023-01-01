@@ -5,7 +5,7 @@ import { exerciseOptions, fetchData } from '../utils/fetchData';
 
 import HorizontalScrollbar from './HorizontalScrollbar';
 
-const SearchExercises = ({setExercises, bodyPart, setBodyPart}) => {
+const SearchExercises = ({setExercises, bodyPart, setBodyPart, isBodyParts}) => {
   // useState for user search bar and the exercises user will search
   const [search, setSearch] = useState('')
   // const [exercises, setExercises] = useState([]);
@@ -82,6 +82,7 @@ const SearchExercises = ({setExercises, bodyPart, setBodyPart}) => {
         <HorizontalScrollbar data={bodyParts}
           bodyPart={bodyPart}
           setBodyPart={setBodyPart}
+          isBodyParts={isBodyParts}
         />
 
       </Box>

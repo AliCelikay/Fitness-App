@@ -10,6 +10,8 @@ import ExerciseVideos from '../components/ExerciseVideos';
 const ExerciseDetail = () => {
   const [exerciseDetail, setExerciseDetail] = useState({});
   const [exerciseVideos, setExerciseVideos] = useState([])
+  const [targetMuscleExercises, setTargetMuscleExercises] = useState([]);
+  const [equipmentExercises, setEquipmentExercises] = useState([]);
   // give access to the number in url
   const { id } = useParams();
 
@@ -24,6 +26,12 @@ const ExerciseDetail = () => {
       const exerciseVideosData = await fetchData(`${youtubeSearchUrl}/search?query=${exerciseDetailData.name} exercise`, youtubeOptions);
       // console.log(exerciseVideosData);
       setExerciseVideos(exerciseVideosData.contents);
+      
+      const targetMuscleExercisesData = await fetchData(`${exerciseDbUrl}/exercises/target/${exerciseDetailData.target}`, exerciseOptions);
+      setTargetMuscleExercises(targetMuscleExercisesData);
+
+      const equipmentExercisesData = await fetchData(`${exerciseDbUrl}/exercises/equipment/${exerciseDetailData.equipment}`, exerciseOptions);
+      setEquipmentExercises(equipmentExercisesData);
     }
     fetchExercisesData();
     // recalling function whenever id changes
@@ -33,7 +41,7 @@ const ExerciseDetail = () => {
     <Box>
         <Detail exerciseDetail={exerciseDetail}/>
         <ExerciseVideos exerciseVideos={exerciseVideos} name={exerciseDetail.name}/>
-        <SimilarExercises/>
+        <SimilarExercises targetMuscleExercises={targetMuscleExercises} equipmentExercises={equipmentExercises}/>
     </Box>
   )
 }
